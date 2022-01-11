@@ -42,6 +42,20 @@ npm install -g firebase-tools
 ```sh
 firebase functions:config:set numberservice.mailgun_api_key="your mailgun sending api key" numberservice.mailgun_domain="your mailgun domain" numberservice.mailgun_recipient="your whitelisted mailgun recipient"
 ```
+or you can simply create a file named `env.json` under `functions` folder with the following object fields
+```json
+{
+  "numberservice": {
+    "mailgun_domain": "your mailgun domain here",
+    "mailgun_recipient": "your whitelisted mailgun recipient",
+    "mailgun_api_key": "your mailgun sending api key"
+  }
+}
+```
+then run
+```
+firebase functions:config:set numberservice="$(cat env.json)"
+```
 
 ### Deployment
 
